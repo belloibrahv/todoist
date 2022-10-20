@@ -31,6 +31,10 @@ function App() {
     setTodo(todos.filter(todo => todo.id !== id))
   }
 
+  const deleteAllCompletedTodo = () => {
+    setTodo(todos.filter(todo => !todo.complete))
+  }
+
   let todosx = []
 
   if (todosToshow === 'all') {
@@ -62,6 +66,7 @@ function App() {
         <button onClick={() => updateTodoToShow('active')}>active</button>
         <button onClick={() => updateTodoToShow('complete')}>complete</button>
       </div>
+      {todos.some(todo => todo.complete) ? <button onClick={deleteAllCompletedTodo}>delete all complete</button> : null}
     </div>
   );
 }
