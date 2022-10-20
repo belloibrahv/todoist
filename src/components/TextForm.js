@@ -21,9 +21,9 @@ const TextForm = ({ onSubmit }) => {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input name='todo' onChange={handleChange} value={text} placeholder="Add Todo..."/>
-        <button type="submit">Add</button>
+      <form onSubmit={handleSubmit} style={{ margin: '0 0 10px 40px' }}>
+        <input style={{ padding: '10px 12px'  }} name='todo' onChange={handleChange} value={text} placeholder="Add Todo..."/>
+        <button style={{ padding: '10px 12px', marginLeft: '12px'  }} type="submit">Add</button>
       </form>
       
     </div>

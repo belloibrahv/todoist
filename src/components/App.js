@@ -2,7 +2,21 @@ import { useState } from "react";
 import TextForm from "./TextForm";
 import Todo from "./Todo";
 
-function App() {
+const styles = {
+  container: {
+    margin: '20px auto 0',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItem: 'center',
+  },
+  btn: {
+    width: '10%',
+    margin: '10px auto'
+  }
+}
+
+const App = () => {
   const [todos, setTodo] = useState([])
   const [todosToshow, setTodoToShow] = useState('all')
   
@@ -49,7 +63,7 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="App" style={styles.container}>
       <TextForm onSubmit={addTodo} />
 
       {todosx.map((todo) => (
@@ -66,7 +80,7 @@ function App() {
         <button onClick={() => updateTodoToShow('active')}>active</button>
         <button onClick={() => updateTodoToShow('complete')}>complete</button>
       </div>
-      {todos.some(todo => todo.complete) ? <button onClick={deleteAllCompletedTodo}>delete all complete</button> : null}
+      {todos.some(todo => todo.complete) ? <button style={styles.btn} onClick={deleteAllCompletedTodo}>delete all complete</button> : null}
     </div>
   );
 }
